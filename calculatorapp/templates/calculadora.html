@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Calcular">
+    </form>
+    
+
+
+    <!-- Agrega el enlace al botón -->
+    <a href="{% url 'tabla_formulario1' %}">Ver Tabla de Moneda</a>
+    <br>
+    <a href="{% url 'tabla_formulario2' %}">Ver Factores de Importacion</a>
+</body>
+</html>

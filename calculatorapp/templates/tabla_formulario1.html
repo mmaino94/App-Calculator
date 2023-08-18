@@ -1,0 +1,36 @@
+<!-- tabla_formulario1.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabla de Moneda</title>
+</head>
+<body>
+    <h1>Tabla de Moneda</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for moneda in monedas %}
+                <tr>
+                    <td>{{ moneda.moneda }}</td>
+                    <td>{{ moneda.valor }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Agregar Moneda y Valor</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <!-- Enlace para volver a la tabla de instrumentos -->
+    <a href="{% url 'calculadora' %}">Volver al menu principal</a>
+</body>
+</html>

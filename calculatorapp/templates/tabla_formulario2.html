@@ -1,0 +1,42 @@
+<!-- tabla_formulario2.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Factores Importacion</title>
+</head>
+<body>
+    <h1>Listado de Factores Importacion</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Instrumento</th>
+                <th>Factor</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instrumento in instrumentos %}
+                <tr>
+                    <td>{{ instrumento.instrumento }}</td>
+                    <td>{{ instrumento.factor }}</td>
+                    <td>
+                        <a href="{% url 'editar_instrumento_factor' instrumento.pk %}">Editar</a> |
+                        <a href="?delete_id={{ instrumento.pk }}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+
+
+    <!-- Agrega el enlace al botón -->
+    <a href="{% url 'agregar_instrumento_factor' %}">Agregar Instrumento y Factor</a>
+
+    {% if form.errors %}
+        <p style="color: red;">Por favor, corrige los errores en el formulario.</p>
+    {% endif %}
+
+    
+</body>
+</html>
